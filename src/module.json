@@ -1,0 +1,116 @@
+{
+  "main": {
+    "name": "W3B3 ConnectWallet",
+    "tagline": "Actions to connect your game to ETH wallets",
+    "version": "1.0.20",
+    "authors": [
+      {
+        "name": "Marco Bruno",
+        "mail": "marco.bruno.dev@proton.me"
+      }
+    ],
+    "categories": [
+      "actions",
+      "integrations"
+    ]
+  },
+  "fields": [
+    {
+      "name": "WalletConnect",
+      "type": "h2"
+    },
+    {
+      "name": "Project ID",
+      "key": "projectId",
+      "type": "text"
+    },
+    {
+      "name": "Chain",
+      "type": "h2"
+    },
+    {
+      "name": "ID",
+      "key": "chainId",
+      "type": "number",
+      "default": 1,
+      "require": true
+    },
+    {
+      "name": "Name",
+      "key": "chainName",
+      "type": "text",
+      "default": "Ethereum Mainnet",
+      "require": true
+    },
+    {
+      "name": "Currency Name",
+      "key": "chainCurrencyName",
+      "type": "text",
+      "default": "Ether",
+      "require": true
+    },
+    {
+      "name": "Currency Symbol",
+      "key": "chainCurrencySymbol",
+      "type": "text",
+      "default": "ETH",
+      "require": true
+    },
+    {
+      "name": "Currency Decimals",
+      "key": "chainCurrencyDecimals",
+      "type": "number",
+      "default": 18,
+      "require": true
+    },
+    {
+      "name": "RPC URL",
+      "key": "chainRpcUrl",
+      "type": "text",
+      "default": "https://mainnet.infura.io/v3/",
+      "require": true
+    },
+    {
+      "name": "Explore Name",
+      "key": "chainExploreName",
+      "type": "text",
+      "default": "Etherscan"
+    },
+    {
+      "name": "Explore URL",
+      "key": "chainExploreUrl",
+      "type": "text",
+      "default": "https://etherscan.com"
+    },
+    {
+      "name": "Explore API",
+      "key": "chainExploreApi",
+      "type": "text",
+      "default": "https://api.etherscan.io/api"
+    },
+    {
+      "name": "Metadata Site",
+      "type": "h2"
+    },
+    {
+      "name": "Name",
+      "key": "siteName",
+      "type": "text"
+    },
+    {
+      "name": "Description",
+      "key": "siteDescription",
+      "type": "text"
+    },
+    {
+      "name": "URL",
+      "key": "siteUrl",
+      "type": "text"
+    },
+    {
+      "name": "Icon URL",
+      "key": "siteIconUrl",
+      "type": "text"
+    }
+  ]
+}
