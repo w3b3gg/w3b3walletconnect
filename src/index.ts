@@ -4,6 +4,8 @@ import { Web3Modal, createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi
 import * as viem from 'viem'
 import { Chain, ChainFormatters } from 'viem'
 
+allChains.polygonAmoy
+
 const projectId = '/*%projectId%*/'
 
 const metadata = {
@@ -13,8 +15,7 @@ const metadata = {
   icons: ['/*%siteIconUrl%*/']
 }
 
-//@ts-ignore
-if ('/*%enableCustomChain%*/' === 'true') {
+if ([/*%enableCustomChain%*/][0] === true) {
   const chain: Chain<ChainFormatters> = {
     id: +'/*%chainId%*/',
     name: '/*%chainName%*/',
@@ -61,41 +62,42 @@ if ('/*%enableCustomChain%*/' === 'true') {
 } else {
   const { http, reconnect } = wagmi
 
+  allChains.polygonAmoy
+
   type UiChainTypes = {
     chain: string,
     rpc: `https://${string}`
   }
 
-  //@ts-ignore
-  const uiChains: UiChainTypes[] = '/*%chains%*/'
+  const uiChains: UiChainTypes[] = [/*%chains%*/][0]
 
-  console.log('chains', uiChains)
+  console.assert(uiChains.length > 0, 'You need to put a chain in Project/W3B3 ConnectWallet')
 
-  const chains: Chain[] = uiChains.map(({ chain }) => allChains[chain])
-  let transports = {}
-  uiChains.forEach(({ rpc }, index) => {
-    transports[chains[index].id] = http(rpc)
-  })
+  if (uiChains.length > 0) {
+    const chains: Chain[] = uiChains.map(({ chain }) => allChains[chain])
+    let transports = {}
+    uiChains.forEach(({ rpc }, index) => {
+      transports[chains[index].id] = http(rpc)
+    })
 
-  console.assert(chains.length > 0, 'You need to put a chain in Project/W3B3 ConnectWallet')
+    const wagmiConfig = defaultWagmiConfig({
+      projectId,
+      metadata,
+      chains: [chains[0], ...chains.slice(1)],
+      transports
+    })
+    reconnect(wagmiConfig)
 
-  const wagmiConfig = defaultWagmiConfig({
-    projectId,
-    metadata,
-    chains: [chains[0], ...chains.slice(1)],
-    transports
-  })
-  reconnect(wagmiConfig)
+    const modal: Web3Modal = createWeb3Modal({
+      wagmiConfig,
+      projectId
+    })
 
-  const modal: Web3Modal = createWeb3Modal({
-    wagmiConfig,
-    projectId
-  })
-
-  globalThis.walletconnect = {
-    modal,
-    wagmiConfig,
-    wagmi,
-    viem
+    globalThis.walletconnect = {
+      modal,
+      wagmiConfig,
+      wagmi,
+      viem
+    }
   }
 }

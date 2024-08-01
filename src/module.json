@@ -2,7 +2,7 @@
   "main": {
     "name": "W3B3 ConnectWallet",
     "tagline": "Actions to connect your game to ETH wallets",
-    "version": "1.0.30",
+    "version": "1.1.0",
     "authors": [
       {
         "name": "Marco Bruno",
