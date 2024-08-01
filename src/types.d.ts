@@ -1,7 +1,6 @@
 import { Web3Modal } from "@web3modal/wagmi"
 import { Chain, ChainFormatters } from "viem"
 
-
 declare global {
   interface Window {
     walletconnect: {

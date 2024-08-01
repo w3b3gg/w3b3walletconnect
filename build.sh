@@ -15,3 +15,4 @@ cp src/types.d.ts dist
 
 cd dist
 zip -x *.zip -r "w3b3walletconnect$version.zip" .
+echo "Create the file dist/w3b3walletconnect$version.zip"

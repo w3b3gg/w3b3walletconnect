@@ -2,7 +2,7 @@
   "main": {
     "name": "W3B3 ConnectWallet",
     "tagline": "Actions to connect your game to ETH wallets",
-    "version": "1.0.20",
+    "version": "1.0.30",
     "authors": [
       {
         "name": "Marco Bruno",
@@ -10,7 +10,6 @@
       }
     ],
     "categories": [
-      "actions",
       "integrations"
     ]
   },
@@ -23,6 +22,54 @@
       "name": "Project ID",
       "key": "projectId",
       "type": "text"
+    },
+    {
+      "name": "Chains",
+      "key": "chains",
+      "type": "table",
+      "default": [],
+      "fields": [
+        {
+          "name": "Chain",
+          "key": "chain",
+          "type": "select",
+          "default": "mainnet",
+          "options": [
+            {
+              "value": "mainnet",
+              "name": "Ethereum Mainnet"
+            },
+            {
+              "value": "sepolia",
+              "name": "Sepolia"
+            },
+            {
+              "value": "polygon",
+              "name": "Polygon"
+            },
+            {
+              "value": "polygonAmoy",
+              "name": "Amoy"
+            }
+          ]
+        },
+        {
+          "name": "RPC",
+          "key": "rpc",
+          "type": "text",
+          "help": "Get a Free RPC on: https://chainlist.org"
+        }
+      ]
+    },
+    {
+      "name": "Custom chain",
+      "type": "h2"
+    },
+    {
+      "name": "Use custom chain",
+      "key": "enableCustomChain",
+      "default": false,
+      "type": "checkbox"
     },
     {
       "name": "Chain",
