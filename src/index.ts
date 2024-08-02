@@ -4,8 +4,6 @@ import { Web3Modal, createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi
 import * as viem from 'viem'
 import { Chain, ChainFormatters } from 'viem'
 
-allChains.polygonAmoy
-
 const projectId = '/*%projectId%*/'
 
 const metadata = {

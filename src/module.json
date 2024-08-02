@@ -50,6 +50,14 @@
             {
               "value": "polygonAmoy",
               "name": "Amoy"
+            },
+            {
+              "value": "bsc",
+              "name": "Binance Smart Chain"
+            },
+            {
+              "value": "bscTestnet",
+              "name": "BSC Testnet"
             }
           ]
         },
